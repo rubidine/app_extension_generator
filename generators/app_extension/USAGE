@@ -1,0 +1,10 @@
+Description:
+    Will generate a plugin that can add routes and controllers/models/helpers
+    into the main rails app.  Akin to engines and appable_plugins, but the
+    results are self-contained.
+
+Example:
+    ./script/generate app_extension Thing
+
+    This will create:
+        vendor/plugins/thing/*

@@ -1,0 +1,13 @@
+AppExtensionGenerator
+====================
+
+Generate plugins that add models/controllers/migrations/tests/assets into an
+existing application.
+
+Unlike engines / appable plugins / &c., these plugins don't require on any other
+plugins, not even AppExtensionGenerator.
+
+usage
+ruby script/generate app_extension my_extension
+
+Then look in the README and init.rb in your new extension.

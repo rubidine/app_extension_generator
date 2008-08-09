@@ -1,0 +1,16 @@
+<%= class_name %>
+<%= "=" * class_name.size %>
+
+To finish writing your plugin, write just like you would for a normal application.
+
+app/{controllers,helpers,models,views}
+db/migrate/
+test/*_test.rb (ok, not quite like a normal app)
+
+public/* are copied into the main app public/<%= file_name %>/* directories.
+
+Routes are defined in the init.rb file, but look very similar to config/routes.rb
+
+View paths on controllers are set automatically to include the views in this directory, but you will need to manually specify 'template_root' in any mailers.
+
+From your main app: rake <%= file_name %>:{migrate,test}
