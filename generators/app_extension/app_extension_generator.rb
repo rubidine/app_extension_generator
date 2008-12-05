@@ -40,10 +40,12 @@ class AppExtensionGenerator < PluginGenerator
       m.directory "#{plugin_path}/app/controllers"
       m.directory "#{plugin_path}/app/helpers"
 
-      m.template 'plugin_migrator.rb', "#{plugin_path}/ext_lib/plugin_migrator.rb"
+      m.template 'plugin_migrator.rb', "#{plugin_path}/ext_lib/#{file_name}_migrator.rb"
       m.template 'ext_init.rb', "#{plugin_path}/ext_lib/init.rb"
-      m.template 'dependency_extension.rb', "#{plugin_path}/ext_lib/#{file_name}_dependency_extension.rb"
+      m.template 'dependency_extension.rb', "#{plugin_path}/ext_lib/#{file_name}_dependencies.rb"
       m.template 'routing_extension.rb', "#{plugin_path}/ext_lib/#{file_name}_routing_extension.rb"
+
+      m.template 'exemplar_data.rb', "#{plugin_path}/test/exemplar_data.rb"
     end
   end
 

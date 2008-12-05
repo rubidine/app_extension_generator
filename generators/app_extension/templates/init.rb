@@ -28,17 +28,29 @@ require File.join(directory, 'ext_lib', 'init.rb')
 # mode) you will need your extension to be reloaded each time the application
 # is reset, so use the hook we provide for you.
 #
-Dependencies.register_<%= file_name %>_extension do
+<%= class_name %>Dependencies.load do
   # to add relationships, validations, etc
+  #
   # SomeModel.send :has_many, :my_model
 
   # to add new methods to instances of a class
-  # define a module in lib/extensions/some_model_<%= file_name %>_extension
+  # define a module in lib/some_model_<%= file_name %>_extension.rb
+  #
   # SomeModel.send :include, SomeModel<%= class_name %>Extension
   # SomeModel.new.my_mixed_in_method
 
   # to add new class methods
-  # define a module in lib/extensions/some_model_<%= file_name %>_class_extension
+  # define a module in lib/some_model_<%= file_name %>_class_extension
+  #
   # SomeModel.send :extend, SomeModel<%= class_name %>ClassExtension
   # SomeModel.my_mixed_in_method
+
+  # to load a constant, which will make sure parent is loaded and inheritance
+  # callbacks trigger.  should be defined in lib/my_class.rb.
+  #
+  # MyClass
+end
+
+# In case tehre is any task to be run when disposing of each request
+<%= class_name %>Dependencies.unload do
 end

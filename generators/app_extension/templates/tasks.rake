@@ -4,8 +4,8 @@ namespace :<%= file_name %> do
   task :migrate do
     require 'environment'
     ActiveRecord::Base.establish_connection
-    require File.join(File.dirname(__FILE__), '..', 'ext_lib', 'plugin_migrator')
-    ActiveRecord::PluginMigrator.migrate(File.join(File.dirname(__FILE__), '..', 'db', 'migrate'), ENV['VERSION'] ? ENV['VERSION'].to_i : nil)
+    require File.join(File.dirname(__FILE__), '..', 'ext_lib', '<%= file_name %>_migrator')
+    ActiveRecord::<%= class_name %>Migrator.migrate(File.join(File.dirname(__FILE__), '..', 'db', 'migrate'), ENV['VERSION'] ? ENV['VERSION'].to_i : nil)
   end
 
   desc 'Test the <%= class_name %> Extension.'
