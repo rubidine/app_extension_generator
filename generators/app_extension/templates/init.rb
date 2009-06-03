@@ -9,12 +9,6 @@ end
 # Load the extension mojo that hacks into the rails base classes.
 require File.join(directory, 'ext_lib', 'init.rb')
 
-# define some routes
-#
-# ActionController::Routing::Routes.define_<%= file_name %>_routes do |map|
-#   map.connect '<%= file_name %>/:action/:id', :controller=>'<%= file_name %>'
-# end
-
 # Monkey patch into the core classes.
 #
 # There are two ways to do this, if you are patching into a core class

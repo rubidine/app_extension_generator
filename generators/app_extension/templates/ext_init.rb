@@ -3,23 +3,7 @@ unless defined?(ActionController) and defined?(ActionController::Dispatcher)
   require 'action_controller/dispatcher'
 end
 
-require File.join(File.dirname(__FILE__), '<%= file_name %>_routing_extension')
 require File.join(File.dirname(__FILE__), '<%= file_name %>_dependencies')
-
-# Routing Extension
-ActionController::Routing::RouteSet.send :include, <%= class_name %>RoutingExtension
-
-# Load paths go after rails app's own lib/, before previously loaded plugins
-ali = $LOAD_PATH.index(File.join(RAILS_ROOT, 'lib')) || 0
-paths = [
-  File.expand_path(File.join(File.dirname(__FILE__), '..', 'app', 'controllers')),
-  File.expand_path(File.join(File.dirname(__FILE__), '..', 'app', 'helpers')),
-  File.expand_path(File.join(File.dirname(__FILE__), '..', 'app', 'models'))
-]
-paths.each do |p|
-  $LOAD_PATH.insert(ali + 1, p)
-  ActiveSupport::Dependencies.load_paths << p
-end
 
 # Views will also look here in the plugin.
 # We use prepend_* to put this directory as a high priority, ahead of any previously loaded plugins.
